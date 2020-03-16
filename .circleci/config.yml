@@ -15,7 +15,7 @@ jobs:
           command: git clone -b v1.10.10/master https://github.com/Lochnair/kernel_e50.git .
           working_directory: /build/kernel_e50
       - run:
-          command: make clean && make ARCH=mips ubnt_er_e50_defconfig
+          command: make ARCH=mips rt305x_defconfig
           working_directory: /build/kernel_e50
       - run:
           command: make -j3 ARCH=mips CROSS_COMPILE=mipsel-mtk-linux- prepare modules_prepare

@@ -74,24 +74,6 @@ jobs:
           root: /build
           paths:
             - module/src/wireguard_e50.ko
-  tools_mips:
-    docker:
-      - image: lochnair/musl-buildenv:mips
-    working_directory: /build/
-    steps:
-      - run:
-          command: git clone -b v1.0.20200206 git://git.zx2c4.com/wireguard-tools .
-          working_directory: /build/tools-mips
-      - run:
-          command: CC="mips-linux-musl-gcc" LDLIBS="-static" make -j5
-          working_directory: /build/tools-mips/src
-      - run:
-          command: mips-linux-musl-strip --strip-unneeded wg
-          working_directory: /build/tools-mips/src
-      - persist_to_workspace:
-          root: /build
-          paths:
-            - tools-mips/src/wg
   tools_mipsel:
     docker:
       - image: lochnair/musl-buildenv:mipsel

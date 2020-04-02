@@ -77,7 +77,7 @@ jobs:
     working_directory: /build/
     steps:
       - run:
-          command: git clone -b v1.0.20200401 git://git.zx2c4.com/wireguard-tools .
+          command: git clone -b v1.0.20200319 git://git.zx2c4.com/wireguard-tools .
           working_directory: /build/tools-mipsel
       - run:
           command: CC="mipsel-linux-musl-gcc" LDLIBS="-static" make -j3
